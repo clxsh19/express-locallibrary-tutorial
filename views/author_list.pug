@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+
+  ul
+    each author in author_list
+      li
+        a(href=`/catalog/author/${author.id}`) #{author.first_name} #{author.family_name}
+        if author.date_of_death
+          | (#{author.date_of_birth} - #{author.date_of_death})
+        else
+          | (#{author.date_of_birth})
+
+    else
+      li There are no authors.
+
